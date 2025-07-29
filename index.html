@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- bulma css template -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.4.0/dist/ionicons/ionicons.js"></script>
+  <title>
+    DreamScene
+  </title>
+  <link rel="icon" href="favicon.ico">
+</head>
+<body>
+  <section class="section">
+
+  <div class="container has-text-centered">
+    <!-- paper title -->
+    <p class="title is-3"> DreamScene: 3D Gaussian-based End-to-end Text-to-3D Scene Generation </p>
+    <!-- publication -->
+    <p class="subtitle is-4"> Under Review, Extended version of ECCV 2024 paper <a href="https://dreamscene-project.github.io/" target="_blank">DreamScene</a> </p>
+
+    <!-- authors -->
+    <p class="title is-5 mt-2"> 
+      <a href="https://scholar.google.com/citations?user=Rxl8r70AAAAJ&hl=en" target="_blank">Haoran Li</a><sup>1</sup>, 
+      <a href="https://github.com/lili174311/" target="_blank">Yuli Tian</a><sup>1</sup>, 
+      <a href="" target="_blank">Kun Lan</a><sup>1</sup>, 
+      <a href="https://scholar.google.com/citations?user=_wuoU1EAAAAJ&hl=en" target="_blank">Yong Liao</a><sup>1*</sup>, 
+      <a href="https://vlislab22.github.io/vlislab/linwang.html" target="_blank">Lin Wang</a><sup>2</sup>, 
+      <a href="https://scholar.google.com/citations?user=dcDrhzMAAAAJ&hl=zh-CN" target="_blank">Pan Hui</a><sup>3</sup>, 
+      <a href="https://scholar.google.com/citations?user=D1HTbhEAAAAJ&hl=en" target="_blank">Yuyang Wang</a><sup>3</sup>, 
+      <a href="https://scholar.google.com.hk/citations?user=GGMWna4AAAAJ&hl=zh-CN" target="_blank">Yonghui Wang</a><sup>1</sup>,
+      <a href="https://pengyuan-zhou.github.io/" target="_blank">Peng Yuan Zhou</a><sup>4</sup>
+    </p>
+    <!-- affiliations -->
+    <p class="subtitle is-5"> 
+      <sup>1</sup> University of Science and Technology of China &nbsp;
+      <sup>2</sup> Nanyang Technological University &nbsp;
+      <br/>
+      <sup>3</sup> Hong Kong University of Science and Technology (Guangzhou)&nbsp;
+      <sup>4</sup> Aarhus University &nbsp;
+    </p>
+
+    <!-- other links -->
+    <div class="is-flex is-justify-content-center">
+      <span class="icon-text mx-1">
+        <a class="button is-dark" href="https://www.arxiv.org/abs/2507.13985" role="button" target="_blank"> <span class="icon"> <ion-icon name="document-text-outline"></ion-icon> </span> <span> arXiv </span>  </a> 
+      </span>
+      <span class="icon-text mx-1">
+        <a class="button is-dark" href="https://github.com/DreamScene-Project/DreamScene" role="button" target="_blank"> <span class="icon"> <ion-icon name="logo-github"></ion-icon> </span> <span> Code </span> </a> 
+      </span>
+    </div>
+  </div>
+
+  <!-- main container -->
+  <div class="container is-max-desktop has-text-centered">
+
+    <!-- abstract -->
+    <p class="title is-3 mt-5 has-text-centered"> Abstract </p>
+    <p class="content is-size-6 has-text-left">
+Generating 3D scenes from natural language holds great promise for applications in gaming, film, and design. However, existing methods struggle with automation, 3D consistency, and fine-grained control. We present DreamScene, an end-to-end framework for high-quality and editable 3D scene generation from text or dialogue. DreamScene begins with a scene planning module, where a GPT-4 agent infers object semantics and spatial constraints to construct a hybrid graph. A graph-based placement algorithm then produces a structured, collision-free layout. Based on this layout, Formation Pattern Sampling (FPS) generates object geometry using multi-timestep sampling and reconstructive optimization, enabling fast and realistic synthesis. To ensure global consistent, DreamScene employs a progressive camera sampling strategy tailored to both indoor and outdoor settings. Finally, the system supports fine-grained scene editing, including object movement, appearance changes, and 4D dynamic motion. Experiments demonstrate that DreamScene surpasses prior methods in quality, consistency, and flexibility, offering a practical solution for open-domain 3D content creation. 
+    </p>
+    
+
+
+<!-- Section Title -->
+<p style="
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  transform: translateX(20px);">
+  Text-to-3D Scene
+</p>
+
+
+<!-- 外层容器（左对齐，不居中） -->
+<div style="width: 1098px; margin-left: -40px;">  <!-- 删掉 margin: 0 auto -->
+  <!-- Scene Labels -->
+<div style="display: flex; gap: 48px; margin-bottom: 6px; margin-left: 34px;">
+  <div style="width: 496px; text-align: center; font-weight: 600;">Outdoor Scene</div>
+  <div style="width: 496px; text-align: center; font-weight: 600;">Indoor Scene</div>
+</div>
+
+
+  <!-- Prompt 行 -->
+  <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 8px;">
+    <div style="width: 34px;"></div>
+    <div style="width: 240px; text-align: center; font-style: italic; font-size: 14px;">"There are many astronauts on the moon."</div>
+    <div style="width: 240px; text-align: center; font-style: italic; font-size: 14px;">"An autumn park."</div>
+    <div style="width: 240px; text-align: center; font-style: italic; font-size: 14px;">"A DSLR photo of a modern living room."</div>
+    <div style="width: 240px; text-align: center; font-style: italic; font-size: 14px;">"A DSLR photo of a classical bedroom."</div>
+  </div>
+
+  <!-- RGB 视频行 -->
+  <div style="display: flex; align-items: center; gap: 16px; margin-bottom: 6px;">
+    <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-size: 12px; color: #888; width: 34px;">RGB</div>
+    <video muted autoplay loop playsinline style="width: 240px; height: 240px; border-radius: 8px; object-fit: cover;">
+      <source src="videos/space.mp4" type="video/mp4">
+    </video>
+    <video muted autoplay loop playsinline style="width: 240px; height: 240px; border-radius: 8px; object-fit: cover;">
+      <source src="videos/park.mp4" type="video/mp4">
+    </video>
+    <video muted autoplay loop playsinline style="width: 240px; height: 240px; border-radius: 8px; object-fit: cover;">
+      <source src="videos/livingroom.mp4" type="video/mp4">
+    </video>
+    <video muted autoplay loop playsinline style="width: 240px; height: 240px; border-radius: 8px; object-fit: cover;">
+      <source src="videos/bedroom.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Depth 视频行 -->
+  <div style="display: flex; align-items: center; gap: 16px;">
+    <div style="writing-mode: vertical-rl; transform: rotate(180deg); font-size: 12px; color: #888; width: 34px;">Depth</div>
+    <video muted autoplay loop playsinline style="width: 240px; height: 240px; border-radius: 8px; object-fit: cover;">
+      <source src="videos/space_depth.mp4" type="video/mp4">
+    </video>
+    <video muted autoplay loop playsinline style="width: 240px; height: 240px; border-radius: 8px; object-fit: cover;">
+      <source src="videos/park_depth.mp4" type="video/mp4">
+    </video>
+    <video muted autoplay loop playsinline style="width: 240px; height: 240px; border-radius: 8px; object-fit: cover;">
+      <source src="videos/livingroom_depth.mp4" type="video/mp4">
+    </video>
+    <video muted autoplay loop playsinline style="width: 240px; height: 240px; border-radius: 8px; object-fit: cover;">
+      <source src="videos/bedroom_depth.mp4" type="video/mp4">
+    </video>
+  </div>
+
+</div>
+
+
+<!-- Section Title -->
+<!-- Section Title -->
+<p style="
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 48px;
+  margin-bottom: 20px;">
+  Quality Improvement
+</p>
+
+
+<!-- Prompt Row -->
+<div style="display: flex; justify-content: space-between; gap: 32px; margin: 0 3% 10px 3%;">
+  <div style="width: 100%; text-align: center; font-size: 16px; font-weight: 500;">
+    DreamScene ECCV
+  </div>
+   <div style="width: 100%; text-align: center; font-size: 16px; font-weight: 500;">
+    DreamScene Now
+  </div>
+</div>
+
+<!-- Video Row -->
+<div style="display: flex; justify-content: space-between; gap: 32px; margin: 0 3%;">
+  <video muted autoplay loop playsinline style="width: 100%; max-width: 49%; aspect-ratio: 1 / 1; border-radius: 8px; object-fit: cover;">
+    <source src="videos/space_eccv.mp4" type="video/mp4">
+  </video>
+  <video muted autoplay loop playsinline style="width: 100%; max-width: 49%; aspect-ratio: 1 / 1; border-radius: 8px; object-fit: cover;">
+    <source src="videos/space_new.mp4" type="video/mp4">
+  </video>
+</div>
+
+
+
+    <p class="title is-3 mt-5 has-text-centered"> Approach </p>
+    <a href="images/overview.pdf">
+      <img src="images/overview.png" alt="Approach of DreamScene"/>
+    </a>
+    <p class="content has-text-left is-size-6">
+        Our framework enables automatic 3D scene generation from natural language, supporting both direct descriptions and interactive dialogues. A GPT-4
+        agent first performs scene decomposition by inferring object semantics, layout constraints, and spatial relations, and constructs a constraint graph to plan
+        collision-free object placements. Each object is generated using Formation Pattern Sampling (FPS), which integrates multi-timestep sampling, 3D Gaussian
+        filtering, and reconstructive generation. These objects are placed into the global scene using predicted affine transformations. We then apply a three-stage
+        camera sampling strategy to optimize the environment and ensure scene-wide consistency. DreamScene also supports structure-aware scene editing, including
+        object relocation, appearance modification, and 4D editing.
+    </p>
+
+   
+    <!-- citation -->
+    <div class="card mt-4">
+      <header class="card-header">
+        <p class="card-header-title"> Citation </p>
+      </header>
+      <div class="card-content is-size-5 has-text-left">
+<pre><code>
+@article{li2025dreamscene,
+  title={DreamScene: 3D Gaussian-based End-to-end Text-to-3D Scene Generation},
+  author={Li, Haoran and Tian, Yuli and Lan, Kun and Liao, Yong and Wang, Lin and Hui, Pan and Zhou, Peng Yuan},
+  journal={arXiv preprint arXiv:2507.13985},
+  year={2025}
+}
+</code></pre>
+      </div>
+    </div>
+
+  </div>
+  </section>
+</body>
+</html>
